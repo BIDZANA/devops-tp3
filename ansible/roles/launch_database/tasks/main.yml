@@ -2,7 +2,7 @@
 - name: Run your database container
   docker_container:
     name: my-db
-    image: marvin92/tp-devops-database
+    image: marvin92/tp-devops-database:latest
     networks:
       - name: my-network
     volumes:

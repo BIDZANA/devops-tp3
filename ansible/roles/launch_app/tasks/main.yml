@@ -2,6 +2,6 @@
 - name: Run your app container
   docker_container:
     name: my-api
-    image: marvin92/tp-devops-backend-api"
+    image: marvin92/tp-devops-backend-api:latest
     networks:
       - name: my-network
