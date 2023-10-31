@@ -1,0 +1,4 @@
+/home/takima/DevOps/devops-project/TP2/backend-api/src/test/java/fr/takima/training/sampleapplication/IT/StudentControllerTestIT.java
+/home/takima/DevOps/devops-project/TP2/backend-api/src/test/java/fr/takima/training/sampleapplication/IT/DepartmentControllerTestIT.java
+/home/takima/DevOps/devops-project/TP2/backend-api/src/test/java/fr/takima/training/sampleapplication/unit/DepartmentsServiceTest.java
+/home/takima/DevOps/devops-project/TP2/backend-api/src/test/java/fr/takima/training/sampleapplication/unit/StudentsServiceTest.java
