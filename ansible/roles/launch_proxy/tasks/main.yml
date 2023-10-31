@@ -1,0 +1,9 @@
+---
+- name: Run your proxy container
+  docker_container:
+    name: my-httpd
+    image: marvin92/tp-devops-http-server
+    ports:
+      - "80:80"
+    networks:
+      - name: my-network

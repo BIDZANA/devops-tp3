@@ -1,0 +1,13 @@
+---
+- name: Deploy My Application
+  hosts: prod
+  gather_facts: false
+  become: yes
+
+  roles:
+    - install_docker
+    - create_network
+    - launch_database
+    - launch_app
+    - launch_proxy
+
