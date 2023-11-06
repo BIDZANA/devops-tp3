@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <router-link to="/">
-      <img alt="Vue logo" src="./assets/logo.png" />
-    </router-link>
+    <nav>
+      <router-link to="/">Accueil</router-link>
+      <router-link to="/department-list">Liste des départements</router-link>
+      <router-link to="/department/:name">Détails du département</router-link>
+    </nav>
     <HelloWorld />
     <router-view />
   </div>
