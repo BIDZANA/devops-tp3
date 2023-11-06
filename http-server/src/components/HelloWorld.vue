@@ -1,8 +1,14 @@
 <template>
   <div class="hello">
+    <nav>
+      <router-link to="/">Accueil</router-link>
+      <router-link to="/department-list">Liste des départements</router-link>
+      <router-link to="/department/:name">Détails du département</router-link>
+    </nav>
     <DepartmentList />
   </div>
 </template>
+
 
 <script>
 import DepartmentList from './DepartmentList';
@@ -31,5 +37,10 @@ li {
 }
 a {
   color: #42b983;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: #2c3e50;
 }
 </style>

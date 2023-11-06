@@ -214,7 +214,7 @@ window['_pr_isIE6'] = function () {
       // expression immediately follows another since a regular expression may
       // have flags for case-sensitivity and the like.  Having regexp tokens
       // adjacent is not valid in any language I'm aware of, so I'm punting.
-      // TODO: maybe style special characters inside a regexp as punctuation.
+      // TOD: maybe style special characters inside a regexp as punctuation.
     }();
 
   // Define regexps here so that the interpreter doesn't have to create an
@@ -547,7 +547,17 @@ window['_pr_isIE6'] = function () {
           if (p.length >= 2 && ch0 === '[') {
             parts[i] = caseFoldCharset(p);
           } else if (ch0 !== '\\') {
-            // TODO: handle letters in numeric escapes.
+            // TOD handle letters in numeric escapes.
+            // Remplacer les lettres dans les échappements numériques
+            if (p.charAt(0) === '\\') {
+              if (decimalValue && decimalValue <= groupIndex) {
+                var replacement = p.replace(/[a-zA-Z]/g, function (ch) {
+                  var cc = ch.charCodeAt(0);
+                  return '[' + String.fromCharCode(cc & ~32, cc | 32) + ']';
+                });
+                parts[i] = '\\' + capturedGroups[groupIndex] + replacement;
+              }
+            }
             parts[i] = p.replace(
                 /[a-zA-Z]/g,
                 function (ch) {
@@ -1022,7 +1032,7 @@ window['_pr_isIE6'] = function () {
 
     shortcutStylePatterns.push([PR_PLAIN,       /^\s+/, null, ' \r\n\t\xA0']);
     fallthroughStylePatterns.push(
-        // TODO(mikesamuel): recognize non-latin letters and numerals in idents
+        // TOD(mikesamuel): recognize non-latin letters and numerals in idents
         [PR_LITERAL,     /^@[a-z_$][a-z_$@0-9]*/i, null],
         [PR_TYPE,        /^@?[A-Z]+[a-z][A-Za-z_$@0-9]*/, null],
         [PR_PLAIN,       /^[a-z_$][a-z_$@0-9]*/i, null],

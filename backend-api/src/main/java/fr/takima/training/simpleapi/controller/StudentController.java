@@ -29,10 +29,7 @@ public class StudentController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> getStudentById(@PathVariable(name="id") long id) {
         Optional<Student> studentOptional = Optional.ofNullable(this.studentService.getStudentById(id));
-        if (studentOptional.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return  ResponseEntity.ok(studentOptional.get());
+        return studentOptional.<ResponseEntity<Object>>map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
